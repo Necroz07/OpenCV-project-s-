@@ -42,7 +42,9 @@ while True:
     if not ok:
         break
 
-    mp_img= medpi.Image(image_format=medpi.ImageFormat.SRGB, data=frame)
+    rgbframe= cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+    mp_img= medpi.Image(image_format=medpi.ImageFormat.SRGB, data=rgbframe)
 
     result = detect.detect(mp_img)
 
@@ -53,15 +55,15 @@ while True:
         print(f"Landmarks= {len(result.face_landmarks[0])}") '''
 
     lms = result.face_landmarks[0]
-    score = smilescore(lms)
+
+    if lms:
+        score = smilescore(lms)
 
     if score > 18.0:
         cv2.putText(frame, "SMILE DETECTED", (99, 150), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
 
     else:
         cv2.putText(frame, "NO SMILE DETECTED", (99, 150), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
-
-
 
 
     cv2.imshow("Webcam", frame)
