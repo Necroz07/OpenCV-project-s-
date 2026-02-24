@@ -26,7 +26,8 @@ detect = vision.FaceLandmarker.create_from_options(options)
 cap = cv2.VideoCapture(3)
 
 currenttime = None
-waittime = 3
+waittime = 0.7
+
 
 thresh= -0.0001
 
@@ -64,8 +65,19 @@ while True:
             cv2.putText(frame, f"SMILE DETECTED {score}", (99, 150), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
             cv2.imshow("CAM", frame)
         
-            if cv2.waitKey(500) == ord('q'):
+            if cv2.waitKey(10000) == ord('q'):
                 break
+            currenttime = None
+
+
+
+        else:
+            cv2.imshow("CAM", frame)
+        
+            if cv2.waitKey(1) == ord('q'):
+                break
+
+
 
     else:
         cv2.imshow("CAM", frame)
