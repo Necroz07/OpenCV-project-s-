@@ -56,14 +56,18 @@ while True:
             i, j = random.randint(1, 5), random.randint(1, 4)             
 
 
-
-
-
         if (time.time() - currenttime) > waittime:
 
            
-            cv2.putText(frame, f"SMILE DETECTED {score}", (99, 150), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
-            cf.display_overlay(i, frame)
+            #cv2.putText(frame, f"SMILE DETECTED {score}", (99, 150), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
+
+
+
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            frame = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
+
+
+            frame = cf.display_overlay(i, frame)
             cv2.imshow("CAM", frame)
             play = cf.phonk(j)
 
