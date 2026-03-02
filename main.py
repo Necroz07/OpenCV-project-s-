@@ -18,7 +18,7 @@ waittime = 0.7
 
 bug = 0
 
-thresh= -0.001
+thresh= -0.0001
 
 if not cap.isOpened():
     raise RuntimeError("can't open yo cam bro")
@@ -97,8 +97,7 @@ while True:
 
     if cv2.waitKey(1) == ord('q'):
             break
-    
-print(bug)
+
 pg.mixer.quit()
 cap.release()
 cv2.destroyAllWindows()
