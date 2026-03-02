@@ -5,6 +5,17 @@ Sigma Phonk Edit Generator is a real-time webcam-based visual and audio effect a
 The project combines computer vision, real-time video processing, and audio triggering to create an interactive “sigma edit” experience directly from your camera feed.
 
 ---
+
+## Demo
+
+### https://youtu.be/Qt5w3KhtXPM
+
+<img width="631" height="500" alt="image" src="https://github.com/user-attachments/assets/bc14c112-a7c7-4958-8308-8bd320cd8fbf"/>
+
+
+
+
+---
 ## How It Works
 
 ### Face Detection & Landmark Tracking
